@@ -8,7 +8,7 @@ Require: Object.extend
     namespace.Class = function () {
         return this._init.apply(this, arguments);
     };
-    namespace.Class.extend({
+    var classPrototype = {
         className: '',
         options: {},
 
@@ -21,6 +21,14 @@ Require: Object.extend
             return this;
         }
 
-    });
+    };
+    namespace.Class.extend(classPrototype);
+    namespace.Class.extends = function (object) {
+        return namespace.Class.clone().extend(classPrototype).extend(object);
+    }
 
 }(window = window || {}));
+
+Function.prototype.clone = function () {
+    return new Function('return ' + this.toString())();
+};
