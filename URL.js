@@ -1,5 +1,6 @@
 ﻿/*
 */
+var exports = exports || window || {};
 (function (namespace) {
 
     namespace.URL = {
@@ -91,5 +92,4 @@
 
     };
 
-}(window = window || {}));
-
+}(exports));

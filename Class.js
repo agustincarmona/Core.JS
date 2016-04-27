@@ -2,7 +2,8 @@
 /*
 Require: Object.extend
 */
-(function (namespace) {
+var exports = exports || window || {};
+(function(namespace){
 
 
     namespace.Class = function () {
@@ -27,7 +28,7 @@ Require: Object.extend
         return namespace.Class.clone().extend(classPrototype).extend(object);
     }
 
-}(window = window || {}));
+}(exports));
 
 Function.prototype.clone = function () {
     return new Function('return ' + this.toString())();

@@ -1,6 +1,10 @@
 /*
     Object extensions
 */
+if (typeof global == "undefined") global = null;
+if (typeof window == "undefined") window = null;
+global = global || window || {};
+
 (function(namespace){
 
     if (namespace.Object.prototype.extend == undefined) {
@@ -54,4 +58,4 @@
 	*/
 
 
-})(window = window || { });
+}(global));
